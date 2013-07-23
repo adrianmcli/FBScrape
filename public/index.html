@@ -12,7 +12,7 @@
 			// Additional JS functions here
 			window.fbAsyncInit = function() {
 				FB.init({
-					appId      : '557739124283121', // App ID
+					appId      : '333142593486328', // App ID
 					channelUrl : 'http://cps.aws.af.cm/channel.html', // Channel File
 					status     : true, // check login status
 					cookie     : true, // enable cookies to allow the server to access the session
@@ -21,13 +21,13 @@
 
 				FB.Event.subscribe('auth.authResponseChange', function(response) {
 					if (response.status === 'connected') {
-						console.log('User is logged into Facebook and the app.');
+						//User is logged into Facebook and the app
 						testAPI();
 					} else if (response.status === 'not_authorized') {
-						console.log('User is logged into Facebook, but not the app.');
+						//User is logged into Facebook, but not the app
 						FB.login();
 					} else {
-						console.log('User is not logged into Facebook.');
+						//User is not logged into Facebook
 						FB.login();
 					}
 				});
@@ -59,6 +59,6 @@
 				});
 			});
 		</script>
-		<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+		<fb:login-button perms="read_stream" show-faces="true" width="200" max-rows="1"></fb:login-button>
 	</body>
 </html>

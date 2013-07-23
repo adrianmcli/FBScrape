@@ -6,7 +6,7 @@ var express = require('express')
 var app = express();
 
 // Configs for all environments 
-app.set('port', process.env.VCAP_APP_PORT || 80);
+app.set('port', process.env.VCAP_APP_PORT || 3000);
 app.set('views', __dirname + '/public');
 app.engine('html', require('ejs').renderFile);
 app.use(express.favicon());

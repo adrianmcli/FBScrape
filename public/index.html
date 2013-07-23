@@ -1,10 +1,13 @@
 <html>
 	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<h1>Test App</h1>
+		<h1>Test App - Retrieve your wall</h1>
 		<img src="test.png">
 		<div id="fb-root"></div>
+		<p>Click <a href="#" id="btnFetch">fetch data</a> AFTER you have logged in below:</p>
+		<div id="outputData"></div>
 		<script>
 			// Additional JS functions here
 			window.fbAsyncInit = function() {
@@ -45,6 +48,16 @@
 					console.log('Good to see you, ' + response.name + '.');
 				});
 			}
+		</script>
+		<script>
+			$(document).ready(function(){
+				$('#btnFetch').click(function(){
+					FB.api('/me/statuses', function(response) {
+						var result = JSON.stringify(response, null, 4);
+						$('#outputData').html("<pre><code>" + result + "</code></pre>");
+					});
+				});
+			});
 		</script>
 		<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 	</body>

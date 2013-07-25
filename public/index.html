@@ -7,7 +7,11 @@
 		<img src="test.png">
 		<div id="fb-root"></div>
 		<p>Click <a href="#" id="btnFetch">fetch data</a> AFTER you have logged in below:</p>
-		<div id="outputData"></div>
+		<p>If testing locally, fetch local data <a href="#" id="btnFetchLocal">here</a></p>
+		<p><a href="#" id="btn">button</a></p>
+		<div id="outputProcessedData"></div>
+		<div id="outputRawData"></div>
+		<div id="outputRawData2"></div>
 		<script>
 			// Additional JS functions here
 			window.fbAsyncInit = function() {
@@ -49,16 +53,7 @@
 				});
 			}
 		</script>
-		<script>
-			$(document).ready(function(){
-				$('#btnFetch').click(function(){
-					FB.api('/me/statuses', function(response) {
-						var result = JSON.stringify(response, null, 4);
-						$('#outputData').html("<pre><code>" + result + "</code></pre>");
-					});
-				});
-			});
-		</script>
 		<fb:login-button perms="read_stream" show-faces="true" width="200" max-rows="1"></fb:login-button>
+		<script src="js/main.js"></script>
 	</body>
 </html>
